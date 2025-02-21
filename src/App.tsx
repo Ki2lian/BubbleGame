@@ -1,3 +1,5 @@
+import "./style.css";
+
 import { FC, useRef } from "react";
 
 import { IRefPhaserGame, PhaserGame } from "@/game/PhaserGame";
