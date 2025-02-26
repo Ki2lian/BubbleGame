@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "type": "module",
     "scripts": {
-        "dev": "vite --config vite/config.dev.ts",
+        "dev": "vite --config vite/config.dev.ts --host",
         "build": "vite build --config vite/config.prod.ts",
         "lint": "eslint ."
     },

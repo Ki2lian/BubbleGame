@@ -1,19 +1,28 @@
-import { GameObjects, Scene } from "phaser";
+import { Scene } from "phaser";
 
-import { EventBus } from "@/game/EventBus";
+import { GameManager } from "@/game/GameManager";
 
 export class Game extends Scene {
-    background: GameObjects.Image;
+    private gameManager: GameManager;
 
     constructor() {
         super("Game");
+        this.gameManager = new GameManager(this);
     }
 
     create() {
-        this.background = this.add.image(400, 300, "background");
+        this.gameManager.setup();
+    }
 
-        this.physics.world.setBounds(0, 0, 800, 600);
+    update() {
+        this.gameManager.update();
+    }
 
-        EventBus.emit("current-scene-ready", this);
+    togglePause() {
+        this.gameManager.togglePause();
+    }
+
+    reset() {
+        this.gameManager.reset();
     }
 }
